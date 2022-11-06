@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+.poup {
+  position: absolute;
+  top: 10vh;
+  left: 30%;
+  width: 40%;
+  min-height: 80vh;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgb(123, 123, 123);
+}
+.poup .poupForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.poup .poupForm .poupForm__inp {
+  margin: 10px;
+  width: 80%;
+  height: 32px;
+  font-size: 24px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid black;
+}
+.poup .hidenInp {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+.poup .btn__send {
+  width: 150px;
+  height: 60px;
+  background-color: green;
+  color: white;
+  border-radius: 20px;
+  font-size: 20px;
+  border: none;
+  right: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.poup .poup__menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+}
+.poup .poup__menu .poup__menu__item {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+.poup .poup__text {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.wrap {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.wrap .btn__buy {
+  position: fixed;
+  width: 200px;
+  height: 60px;
+  background-color: green;
+  color: white;
+  border-radius: 20px;
+  font-size: 20px;
+  border: none;
+  right: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap h3 {
+  margin-bottom: 100px;
+}
+.wrap .productContainer {
+  user-select: none;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.wrap .productContainer .productItem {
+  cursor: pointer;
+  width: 300px;
+  height: 250px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-size: cover;
+  background-position: center;
+}
+.wrap .productContainer .productItem div {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 20px;
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

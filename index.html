@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  
+    <div class="wrap">
+        <div class="btn__buy" id="btn__buy">Buy</div>
+        <h3>Товари</h3>
+        <div class="productContainer" >
+            <!-- <div class="productItem" ></div> -->
+        </div>
+   
+    </div>
+    <div class="poup" id="poup">
+        <div class="poup__text">Ваш чек</div>
+        <div class="poup__menu" id="poup__menu"></div>
+        <form class="poupForm" id="my-form" action="https://formspree.io/f/xknepdqe" method="POST">
+    <!-- <div class="poupForm__inps"> -->
+        <input class="poupForm__inp" id="poupForm__inp1"  type="email" name="email" placeholder="Enter your email" />
+      
+        <input class="poupForm__inp" id="poupForm__inp2" type="text" name="message" placeholder="Enter extra information" />
+    <!-- </div> -->
+ 
+            <input type="text" name="message" class="hidenInp" id="hidenInp" />
+            
+            <p id="my-form-status"></p>
+          
+        <button class="btn__send" id="btn__send my-form-button">Buy</button>
+    </form>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+            // if(poupForm__inp1.value.length>0 && poupForm__inp2.vlaue.length>0 && hidenInp.value.length>0){
+                event.preventDefault();
+          var status = document.getElementById("my-form-status");
+          var data = new FormData(event.target);
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              status.innerHTML = "Thanks for your submission!";
+              form.reset()
+            } else {
+              response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                } else {
+                  status.innerHTML = "Oops! There was a problem submitting your form"
+                }
+              })
+            }
+          }).catch(error => {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+          });
+            // }else{
+            //     alert('Ти шось не ввів')
+            // }
+        
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+</body>
+</html>
